@@ -1,24 +1,33 @@
+import { createType } from './todo.type';
 import { todoService } from './todo.service';
-import { Controller, Get, Post, Body, Param } from '@nestjs/common'
+import { Controller, Get, Post, Body, Param, Put, Patch } from '@nestjs/common'
 
-@Controller()
+@Controller("todo")
 export class todoController {
   constructor(private service: todoService) {}
 
   @Get()
-  getTodo() {
-    return this.service.getTodos();
+  getAll() {
+    return this.service.getAll();
   }
 
   @Get("/:id")
-  getById(@Param("id") id) {
+  getById(@Param("id") id: string) {
     return this.service.getById(id);
   }
 
-
   @Post("/create")
-  createTodo(@Body() body) {
+  create(@Body() body: createType) {
+    return this.service.create(body);
+  }
 
-    return this.service.createTodo(body);
+  @Put("/edit/:id")
+  edit(@Param("id") id: string, @Body() body: createType) {
+    return this.service.edit(id, body);
+  }
+
+  @Patch("/status/:id")
+  editStatus(@Param("id") id: string) {
+    return this.service.editStatus(id);
   }
 }
