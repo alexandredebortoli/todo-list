@@ -64,6 +64,6 @@ $ yarn test:e2e
 # test coverage
 $ yarn test:cov
 ```
-## Referência
+## Reference
 
  - [NestJS Documentation](https://docs.nestjs.com/)
