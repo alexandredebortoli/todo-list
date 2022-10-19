@@ -23,7 +23,7 @@ with each other using gRPC.
 Clone the project
 
 ```bash
-$ git clone https://github.com/alexandredebortoli/todo-list.git
+$ git clone https://github.com/alexandredebortoli/todo-list-bff.git
 ```
 
 Access the project directory
