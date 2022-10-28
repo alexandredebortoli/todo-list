@@ -1,4 +1,4 @@
-import { createType } from './todo.type';
+import { createType, TodoType, IdType } from './todo.type';
 import { todoService } from './todo.service';
 import { Controller, Get, Post, Body, Param, Put, Patch } from '@nestjs/common';
 
@@ -7,27 +7,27 @@ export class todoController {
   constructor(private service: todoService) {}
 
   @Get()
-  getAll() {
-    return this.service.getAll();
+  async getAll() {
+    return await this.service.getAll();
   }
 
   @Get('/:id')
-  getById(@Param('id') id: string) {
-    return this.service.getById(id);
+  async getById(@Param('id') id: string) {
+    return await this.service.getById(id);
   }
 
   @Post('/create')
-  create(@Body() body: createType) {
-    return this.service.create(body);
+  async create(@Body() body: TodoType) {
+    await this.service.create(body);
   }
 
   @Put('/edit/:id')
-  edit(@Param('id') id: string, @Body() body: createType) {
-    return this.service.edit(id, body);
+  async edit(@Param('id') id: string, @Body() body: TodoType) {
+    await this.service.edit(id, body);
   }
 
   @Patch('/status/:id')
-  editStatus(@Param('id') id: string) {
-    return this.service.editStatus(id);
+  async editStatus(@Param('id') id: string) {
+    await this.service.editStatus(id);
   }
 }

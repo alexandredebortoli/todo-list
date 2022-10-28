@@ -1,5 +1,5 @@
 import { HealthModule } from './healthcheck/health.module';
-import { TodoModule } from './todo/todo.module';
+import { TodoModule } from './modules/todo/todo.module';
 import { Module } from '@nestjs/common';
 
 @Module({
