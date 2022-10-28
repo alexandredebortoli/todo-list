@@ -12,7 +12,7 @@ import { Transport, ClientsModule } from '@nestjs/microservices';
         transport: Transport.GRPC,
         options: {
           package: `todoService`,
-          url: `0.0.0.0:5000`,
+          url: `todo-service-container:5000`,
           protoPath: join(__dirname, '../../proto/todo-service.proto'),
         },
       },
